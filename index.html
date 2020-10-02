@@ -20,7 +20,7 @@
       event.preventDefault();
       document.getElementById("txtHint").innerHTML =
         document.getElementById("cityField").value;
-      const url = "staticCity.txt";
+      const url = "http://bioresearch.byu.edu/cs260/jquery/getcity.cgi?q=P";
       fetch(url)
         .then(function(response) {
           return response.json();
@@ -28,6 +28,13 @@
           console.log(json);
           console.log(json[0]);
           console.log("Got " + json[0].city);
+          var everything;
+          everything = "<ul>";
+          for (let i = 0; i < json.length; i++) {
+            everything += "<li> " + json[i].city;
+          };
+          everything += "</ul>";
+          document.getElementById("txtHint").innerHTML = everything;
         });
     });
   </script>
