@@ -20,7 +20,8 @@
       event.preventDefault();
       document.getElementById("txtHint").innerHTML =
         document.getElementById("cityField").value;
-      const url = "http://bioresearch.byu.edu/cs260/jquery/getcity.cgi?q=P";
+        const url = "http://bioresearch.byu.edu/cs260/jquery/getcity.cgi?q="+
+              document.getElementById("cityField").value;
       fetch(url)
         .then(function(response) {
           return response.json();
